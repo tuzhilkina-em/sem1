@@ -211,7 +211,6 @@ int main(){
 					break;
 				}//while case42
 
-
 				int *newmas = NULL;
 				int newn = 0;		 //Длина нового массива 
 
