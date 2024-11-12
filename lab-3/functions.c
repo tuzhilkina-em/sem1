@@ -3,7 +3,7 @@
 int* inicialization(int n){						//Функция выделения памяти для массива длиной n
 
 
-	int *mas = (int*)calloc(n*sizeof(int));		//Работа с памятью
+	int *mas = (int*)malloc(n*sizeof(int));		//Работа с памятью
 
 	if(mas == NULL){							//Проверка памяти(создан ли массив)
 		return NULL;
