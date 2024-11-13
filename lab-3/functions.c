@@ -3,7 +3,7 @@
 int* inicialization(int n){						//Функция выделения памяти для массива длиной n
 
 
-	int *mas = (int*)malloc(n*sizeof(int));		//Работа с памятью
+	int *mas = (int*)calloc(n, sizeof(int));		//Работа с памятью
 
 	if(mas == NULL){							//Проверка памяти(создан ли массив)
 		return NULL;
@@ -83,12 +83,16 @@ int del(int n, int **mas, int k){								//Функция удаления эл�
 }
 
 int indtask(int diap0, int diap1, int **mas, int *n, int **newmas, int *len){	//Индивидуальное задание 
+	if (*mas == NULL){
+		return 1;
+	}
 	int count = -1;
 
 	for(int i = 0; i < *n; i++){
 
 		count++;
 		if (((*mas)[i] >= diap0)&&((*mas)[i] <= diap1)){
+
 			add(*len, &*newmas,  *len, count);
 			*len += 1;
 			del(*n, &*mas, i);
@@ -100,6 +104,9 @@ int indtask(int diap0, int diap1, int **mas, int *n, int **newmas, int *len){	//
 }
 
 int print(int *mas, int n){
+	if(mas == NULL){
+		return 1;
+	}
 	for(int i = 0; i < n; i++){
 		printf("%d ", mas[i]);
 	}

@@ -8,7 +8,8 @@ int main(){
 	int diap0 = 0;		//Начальное значение диапазона для таска
 	int diap1 = 0;		//Конечное значение диапазона для таска
 	int check = 0;		//Для проверки корректности ввода
-
+    int *newmas = NULL;
+	int newn = 0;
 
 
     while(1){
@@ -211,13 +212,15 @@ int main(){
 					break;
 				}//while case42
 
-				int *newmas = NULL;
-				int newn = 0;		 //Длина нового массива 
+			    newmas = NULL;
+				newn = 0;		 //Длина нового массива 
 
-				indtask(diap0, diap1, &mas, &n, &newmas, &newn);
-				
+				check = indtask(diap0, diap1, &mas, &n, &newmas, &newn);
 
-			
+				if (check == 1){
+					printf("Элементы не найдены");
+					break;
+				}		
 
 				print(mas, n);
 				print(newmas, newn);
